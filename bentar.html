@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>SIAKAD SMK Telkom Malang</title>
+
+    
+    <!-- <link rel="stylesheet" type="text/css" href="https://siswa.smktelkom-mlg.sch.id/assets/plugins/select2/select2.min.css"> -->
+    <link rel="icon" href="https://siswa.smktelkom-mlg.sch.id/assets/favicon.ico" type="image/x-icon">
+    <link href="https://siswa.smktelkom-mlg.sch.id/assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="https://siswa.smktelkom-mlg.sch.id/assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+   
+    <link href="https://siswa.smktelkom-mlg.sch.id/assets/plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="https://siswa.smktelkom-mlg.sch.id/assets/plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="https://siswa.smktelkom-mlg.sch.id/assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="https://siswa.smktelkom-mlg.sch.id/assets/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="https://siswa.smktelkom-mlg.sch.id/assets/css/materialize.css" rel="stylesheet">
+    <link href="https://siswa.smktelkom-mlg.sch.id/assets/css/themes/all-themes.css" rel="stylesheet" />
+    <link href="https://siswa.smktelkom-mlg.sch.id/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+    <link href='https://siswa.smktelkom-mlg.sch.id/assets/plugins/calendar/fullcalendar.css' rel='stylesheet' />
+    <link href='https://siswa.smktelkom-mlg.sch.id/assets/plugins/calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.min.css" integrity="sha512-uLI05NEY4Yj4tbrsvcBHTcRJBT4gZaxENUHwjWMcLIK0xaVzpr4ScBA5Wc7dgw/wVTzKLGWsq0MeXQp0SkXpIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    
+         <link href="https://siswa.smktelkom-mlg.sch.id/assets/css/style.css?v=12345" rel="stylesheet">
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/jquery/jquery.min.js"></script>
+        
+
+<style type="text/css">
+        .kamera{
+            position: absolute;
+            opacity:0;
+            transition: all .4s ease-in;
+            z-index: 11;
+        }
+    .photo:hover .kamera{
+       opacity:100;
+       cursor: pointer;
+       transition: all .4s ease-out;
+       z-index: 10;
+    }
+    .loading3{
+        position: absolute;
+            display:none;
+            transition: all .4s ease-in;
+            z-index: 10;
+    }
+    .loading4{
+        position: absolute;
+            display:none;
+            transition: all .4s ease-in;
+            z-index: 10;
+    }
+    .pesannya{
+    	top:30px;
+    	left:20px;
+    	color:red;
+    	background:yellow;
+    	text-align: center;
+    	border-radius:30px;
+        display: block;
+        position: absolute;
+            opacity:100;
+            transition: all .4s ease-in;
+            z-index: 12;
+    }
+    /*.pesannya1{
+        color:red;
+        background:yellow;
+        text-align: center;
+        border-radius:30px;
+        display: block;
+            opacity:100;
+            transition: all .4s ease-in;
+            z-index: 12;
+    }*/
+@media (max-width: 992px){
+	.cocok{
+		margin-bottom: 7px !important;
+    	margin-right: 10px;
+	}
+}
+
+</style>
+</head>
+<div class="modal fade" id="no_wa" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="largeModalLabel">SILAHKAN UPDATE NOMOR WA ANDA</h4>
+            </div>
+             
+                <div class="modal-body">
+                    
+                    <!-- <div class="form-group form-float">
+                        <div class="form-line"> -->
+                            <form id="proses_wa">
+                                <div class="input-group">
+                                    <p class="form-label" style="text-align: center">ISIKAN NOMOR WHATSAPP ANDA</p>
+                                    <span class="input-group-addon" style="padding-top: 16px;">
+                                        +62
+                                    </span>
+                                    <div class="form-line">
+                                        <input type="text" name="no_wa" class="form-control" placeholder="8123456789">
+                                    </div>
+                                    <input type="hidden" name="token" value="8b24cc44266419c7b4dd49f1d61dc3bb">
+                                    <center><input type="submit" class="btn btn-danger waves-effect" value="SIMPAN"></center>
+                                    <br>
+                                </div>
+                            </form>
+                            
+                            <div class="input-group" id="isi_otp" style="display: none">
+                                <p class="form-label" style="text-align: center">Masukkan 6 Kode OTP dari Whatsapp kamu</p>
+                                <div class="form-line" style="padding-left: 17px;">
+                                    <input type="text" name="kode_otp" maxlength="6" id="kode_otp" class="form-control">
+                                </div>
+                                <center><span id="menit">OTP akan expired pada <span id="expired">0</span> </span></center>
+                                <input type="hidden" name="token1" id="token1"  value="8b24cc44266419c7b4dd49f1d61dc3bb">
+                                <center><a href="#" data-toggle="modal" id="coba_lagi">Coba Lagi</a></center>
+                            </div>
+                       <!--  </div>  
+                    </div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">TUTUP</button>
+                </div>
+             
+        </div>
+    </div>
+</div>
+<body class="theme-red">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            	<a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="#">SIAKAD</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right cocok" style="margin-top: -9px;">
+                    <li class="dropdown pull-right">
+                        <a href="javascript:void(0);" class="btn btn-default" style="color: #222;">
+                                XI-RPL3                            </a>
+                        <!-- <ul class="dropdown-menu pull-right">
+                            <li></li>
+                        </ul> -->
+                    </li>
+                    <li class="dropdown pull-right">
+                        <a href="javascript:void(0);" class="btn btn-default" style="color: #222;">
+                                2022/2023</a>
+                        <!-- <ul class="dropdown-menu pull-right">
+                            <li></li>
+                        </ul> -->
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image photo" style="position: relative">
+                    <div class="pesannya"></div>
+                    <img class="loading3" src="https://siswa.smktelkom-mlg.sch.id/assets/loading3.gif" width="48" height="48" >
+                    <form id="form_upload_profil" method="post" enctype="multipart/form-data">
+                    <input name="upload_profil" required class="form-control" id="upload_profil" type="file" accept="image/*" style='display: none;'>
+                    </form>
+                    <img class="kamera" name="kamera" src="https://siswa.smktelkom-mlg.sch.id/assets/kamera.png" width="48" height="48">
+                                        <img src="https://siswa.smktelkom-mlg.sch.id/assets/images/foto_siswa/Ipan.jpeg" width="48" height="48" alt="User" />
+                    
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ARIALDO RIVANDI TION SAPUTRA                    </div>
+                    <div class="email">arialdo_saputra_30rpl@student.smktelkom-mlg.sch.id</div>
+                    <div class="email">XI-RPL3</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="https://siswa.smktelkom-mlg.sch.id/profil"><i class="material-icons">person</i>Profil Siswa</a></li>
+                            <li><a href="#ubah_kata_sandi" data-toggle="modal"><i class="material-icons">vpn_key</i>Ubah Password</a></li>
+                            <li><a href="https://siswa.smktelkom-mlg.sch.id/login/logout"><i class="material-icons">input</i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <!-- ABSESNSI siswa -->
+            
+            <div class="menu">
+                <ul class="list">
+                                            <li class="header"></li>
+                        <li class="active">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/welcome">
+                                <i class="material-icons">home</i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <!-- <li class="">
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">widgets</i>
+                                <span>Visi Misi</span>
+                            </a>
+                            <ul class="ml-menu">
+                                <li class=""><a href="https://siswa.smktelkom-mlg.sch.id/visi_misi/tkj">Visi Misi TKJ</a>
+                                </li>
+                                <li class=""><a href="https://siswa.smktelkom-mlg.sch.id/visi_misi/rpl">Visi Misi RPL</a>
+                                </li>
+                            </ul>
+                        </li>  -->
+                        
+                        
+                        <!-- <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/buku_harian_siswa">
+                                <i class="material-icons">book</i>
+                                <span>Buku Harian Siswa</span>
+                            </a>
+                        </li> -->
+                        <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/profil">
+                                <i class="material-icons">person_outline</i>
+                                <span>Profil Siswa</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/presnow">
+                                <i class="material-icons">touch_app</i>
+                                <span>Kehadiran Hari Ini</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/siswa_absen">
+                                <i class="material-icons">fingerprint</i>
+                                <span>Data Absensi</span>
+                            </a>
+                        </li>
+
+                        <!-- <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/kelas_uji_coba">
+                                <i class="material-icons">today</i>
+                                <span>Kelas Uji Coba</span> <span class="badge" style="margin-top: 0px;">Baru</span>
+                            </a>
+                        </li> -->
+
+                        <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/jadwal_pelajaran_xls">
+                                <i class="material-icons">today</i>
+                                <span>Jadwal Pelajaran</span>
+                            </a>
+                        </li>
+                        
+                        <!-- <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/kelas_online">
+                                <i class="material-icons">today</i>
+                                <span>Kelas Online</span>
+                            </a>
+                        </li> -->
+                        <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/nilai">
+                                <i class="material-icons">score</i>
+                                <span>Rekap Nilai</span>
+                            </a>
+                        </li>
+                        
+                        <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/siswa_pelanggaran">
+                                <i class="material-icons">tab</i>
+                                <span>Pelanggaran</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/siswa_tunggakan">
+                                <i class="material-icons">attach_money</i>
+                                <span>SPP</span>
+                            </a>
+                        </li>
+
+                                                    <li class="">
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">explore</i>
+                                    <span>Prakerin</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li class=""><a href="https://siswa.smktelkom-mlg.sch.id/prakerin/lokasi_prakerin">Lokasi Prakeri</a>
+                                    </li>
+                                                                    </ul>
+                            </li>
+                                                    <!-- <li class="">
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">assignment_turned_in</i>
+                                    <span>Pernyataan</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li class=""><a href="https://siswa.smktelkom-mlg.sch.id/pernyataan/kuliah_kerja">Kuliah atau Kerja</a>
+                                    </li>
+                                </ul>
+                            </li> -->
+
+                        <!-- <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/bukuinduk" target="_blank">
+                                <i class="material-icons">book</i>
+                                <span>Buku Induk</span>
+                            </a>
+                        </li> -->
+
+                        <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/pengaduan_sarana">
+                                <i class="material-icons">call</i>
+                                <span>Pengaduan Sarana</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="https://siswa.smktelkom-mlg.sch.id/peminjaman_ruang">
+                                <i class="material-icons">today</i>
+                                <span>Peminjaman Ruang</span>
+                            </a>
+                        </li>
+
+                                            
+                   
+                </ul>
+            </div>
+            <!-- #Menu -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+
+    <section class="content">
+        
+            
+			<div class="block-header"> 
+    <h2>DASHBOARD</h2>
+    <small>Terakhir diperbarui: <span id="update"></span></small>
+</div>
+          
+<div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <p class="alert alert-danger">
+                    <strong>Anda belum MENGESET No WA</strong><br>Silahkan set NO WA <a href='#no_wa' data-toggle='modal' style='color:black;padding:3px;background:white'>disini</a>                </p>
+            </div>
+                
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <p class="alert alert-info">
+            <strong>Piket pada hari ini</strong> : Endah Kurniawati, M.Pd dan Diaur Rahman, S.Pd.        </p>
+    </div>
+
+    <!-- <div id="paktanya"></div> -->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        </div>
+    <!-- pernyataan prakerin luring -->
+        
+
+
+
+
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <div class="row clearfix">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="t_info" style="display: none">
+                        <div class="info-box bg-pink hover-expand-effect">
+                            <div class="icon">
+                                <i class="material-icons">fingerprint</i>
+                            </div>
+                            <div class="content" style="position: relative;">
+                                <div class="text">INFORMASI</div>
+                                <div class="number" id="info_umum" style="font-size: 12px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="info-box-3 bg_hadir1">
+                            <div class="icon">
+                                <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="content">
+                                <div class="text" id="text_status_hadir">Status Presensi</div>
+                                <div class="number" style="font-size: 22px" id="status_hadir1"></div>
+                                        <span id="waktu_ada" style="position: absolute;bottom:0px;font-size: 12px"></span>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="header bg-red">
+                                <h2>
+                                    PERSENTASE KEHADIRAN <span id="persen_hadir">0%</span>
+                                    <small>Berikut detail rekap kehadiran anda.</small>
+                                </h2>
+                            </div>
+                            <div class="body">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Sakit <span class="badge bg-indigo" id="sakit">0 hari</span></li>
+                                    <li class="list-group-item">Izin <span class="badge bg-orange" id="ijin">0 hari</span></li>
+                                    <li class="list-group-item">Dispensasi <span class="badge bg-blue" id="dispen">0 hari</span></li>
+                                    <li class="list-group-item">Alpha <span class="badge bg-red" id="alpha">0 hari</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header bg-blue-grey">
+                        <h2>2022</h2>
+                        <h1>Thursday, Jul 28</h1>
+                    </div>
+                    <div class="body">
+                        <div id='calendar'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header bg-indigo">
+                <h2>100 Besar</h2>
+                <h1>Kehadiran Pertama</h1>
+            </div>
+            <div class="body" style="padding: 10px;height: 70vh; overflow: scroll">
+                <div id="tm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="confirm_luring" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="largeModalLabel">KONFIRMASI KEGIATAN PTM</h4>
+            </div>
+                <form id="confirm_luring" action="https://siswa.smktelkom-mlg.sch.id/kbm_luring/confirm" method="post">
+                    <div class="modal-body">
+                    <p>
+                        Yang menyatakan dibawah ini :
+                        <ol>
+                            <li>Nama 			: CAHYONO </li>
+                            <li>Alamat			: Doko Jl abdul salam rt 02/02 kec doko kab blitar tepatnya di avanza swalayan </li>
+                            <li>Pekerjaan		: Wiraswasta </li>
+                            <li>Nomor Hp		: +62 813-3490-4050 </li>
+                        </ol>
+                            Selaku Orang Tua / Wali dari 
+                        <ol> 
+                            <li>Nama (Sesuai Ijasah)	: ARIALDO RIVANDI TION SAPUTRA</li>
+                            <li>Alamat			: JL.Segara Anak G7A2 Sawojajar 1, Sawojajar, Kec. Kedungkandang, Kota Malang, Jawa Timur 65139 </li>
+                            <li>Kelas			: XIR3</li>
+                            <li>Bidang Keahlian	: RPL </li>
+                        </ol>
+                            Menyatakan (<i>pilih salah satu</i>):
+                        <div class="form-group">
+                            <input type="radio" value="1" name="luring" id="luring_1" class="with-gap" required >
+                            <label for="luring_1">Setuju</label>
+
+                            <input type="radio" value="0" name="luring" id="luring_0" class="with-gap" required >
+                            <label for="luring_0">Tidak Setuju</label>
+                        </div>
+                        <div id="aku_setuju" style="display: none"> 
+                            <ol>
+                                <li><b>Mengizinkan</b> putra/putri kami untuk mengikuti Kegiatan PTM di sekolah.</li>
+                                <li>Bersedia mematuhi dan mengikuti Peraturan serta Standar Protokol Kesehatan yang telah ditetapkan.</li>
+                                <li>Tidak berkeberatan menerima sanksi jika tidak mengikuti Standar Protokol yang telah ditetapkan. </li>
+                                <li>Bersedia menanggung resiko dan bekerjasama dengan sekolah jika terjadi penularan COVID-19 pada saat PTM</li>
+                            </ol>
+                            Demikian pernyataan ini dibuat dengan penuh kesadaran demi rasa tanggung jawab saya selaku orang tua / wali murid.
+                            <br><br>
+                            Pernyataan ini dibuat pada tanggal 28 Jul 2022 melalui sistem SIAKAD secara daring.
+                        </div>
+                        <div id="aku_tdk_setuju" style="display: none"> 
+                            <p><b>Tidak mengizinkan</b> putra/putri kami untuk mengikuti Kegiatan PTM.</p>
+                            <p>Demikian pernyataan ini dibuat dengan penuh kesadaran demi rasa tanggung jawab saya selaku orang tua / wali murid.
+                            <br><br>
+                            Pernyataan ini dibuat pada tanggal 28 Jul 2022 melalui sistem SIAKAD secara daring.</p>
+                        </div>
+                            
+                    </p>
+
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-success waves-effect btn-block" value="SIMPAN">
+                    </div>
+                </form>
+             
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="confirm_prakerin_luring" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="largeModalLabel">KONFIRMASI KEGIATAN PRAKERIN OFFLINE</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -22px;"><span aria-hidden="true">&times;</span></button>
+            </div>
+                <form id="confirm_prakerin_luring1" action="https://siswa.smktelkom-mlg.sch.id/prakerin_offline/confirm" method="post">
+                    <div class="modal-body">
+                    <p>
+                        Yang menyatakan dibawah ini :
+                        <ol>
+                            <li>Nama            : CAHYONO </li>
+                            <li>Alamat          : Doko Jl abdul salam rt 02/02 kec doko kab blitar tepatnya di avanza swalayan </li>
+                            <li>Pekerjaan       : Wiraswasta </li>
+                            <li>Nomor Hp        : +62 813-3490-4050 </li>
+                        </ol>
+                            Selaku Orang Tua / Wali dari 
+                        <ol> 
+                            <li>Nama (Sesuai Ijasah)    : ARIALDO RIVANDI TION SAPUTRA</li>
+                            <li>Alamat          : JL.Segara Anak G7A2 Sawojajar 1, Sawojajar, Kec. Kedungkandang, Kota Malang, Jawa Timur 65139 </li>
+                            <li>Kelas           : XIR3</li>
+                            <li>Bidang Keahlian : RPL </li>
+                        </ol>
+                            Menyatakan (<i>pilih salah satu</i>):
+                        <div class="form-group">
+                            <input type="radio" value="1" name="prakerin_luring" id="prakerin_luring_1" class="with-gap" required >
+                            <label for="prakerin_luring_1">Setuju</label>
+
+                            <input type="radio" value="0" name="prakerin_luring" id="prakerin_luring_0" class="with-gap" required >
+                            <label for="prakerin_luring_0">Tidak Setuju</label>
+                        </div>
+                        dalam mengikuti Prakerin Offline
+                        <div id="aku_setuju_prakerin_offline" style="display: block"> 
+                            <ol>
+                                <li><b>Mengizinkan</b> putra/putri kami untuk mengikuti Kegiatan Prakerin Offline di Industri.</li>
+                                <li>Bersedia mematuhi dan mengikuti Peraturan serta Standar Protokol Kesehatan yang telah ditetapkan.</li>
+                                <li>Tidak berkeberatan menerima sanksi jika tidak mengikuti Standar Protokol yang telah ditetapkan. </li>
+                                <li>Bersedia menanggung resiko dan bekerjasama dengan sekolah jika terjadi penularan COVID-19 pada saat Prakerin Offline</li>
+                            </ol>
+                            Demikian pernyataan ini dibuat dengan penuh kesadaran demi rasa tanggung jawab saya selaku orang tua / wali murid.
+                            <br><br>
+                            Pernyataan ini dibuat pada tanggal 28 Jul 2022 melalui sistem SIAKAD secara daring.
+                        </div>
+                        <div id="aku_tdk_setuju_prakerin_offline" style="display: none"> 
+                            <p><b>Tidak mengizinkan</b> putra/putri kami untuk mengikuti Kegiatan Prakerin Offline.</p>
+                            <p>Demikian pernyataan ini dibuat dengan penuh kesadaran demi rasa tanggung jawab saya selaku orang tua / wali murid.
+                            <br><br>
+                            Pernyataan ini dibuat pada tanggal 28 Jul 2022 melalui sistem SIAKAD secara daring.</p>
+                        </div>
+                            
+                    </p>
+
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-success waves-effect btn-block" value="SIMPAN">
+                    </div>
+                </form>
+             
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="form_prakerin_luring" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="largeModalLabel">UPLOAD SURAT PERNYATAAN KEGIATAN PRAKERIN OFFLINE (*jpg)</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -22px;"><span aria-hidden="true">&times;</span></button>
+            </div>
+                <form id="upload_prakerin_luring" action="https://siswa.smktelkom-mlg.sch.id/prakerin_offline/upload" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <p>Silahkan upload Surat Pernyataan Prakerin Offline dengan bertanda tangan orang tua / wali</p>
+                        <input type="file" name="file_upload" class="form-control" accept="image/*">
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-success waves-effect btn-block" value="SIMPAN">
+                    </div>
+                </form>
+             
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="skl" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="largeModalLabel">Surat Keterangan LULUS</h4>
+            </div>
+                
+                    <div class="modal-body">
+                        <div class="row">
+                            <h4 align="center">PENGUMUMAN KELULUSAN SISWA SMK TELKOM SANDHY PUTRA MALANG ANGKATAN 28 TAHUN PELAJARAN 2021/2022</h4>
+
+<p>Malang, Jumat, 3 Juni 2022</p>
+
+<p>Mengacu pada <strong>pasal 6 Peraturan Sekjen Kemendikbudristek Nomor 1 Tahun 2022</strong>, kelulusan SMK atau sederajat ditetapkan tanggal 3 Juni 2022. Kelulusan akan dituangkan melalui <strong>Surat Keterangan Lulus</strong> dan ditandatangani oleh kepala sekolah. </p>
+
+<p>Berdasarkan informasi tersebut, SMK Telkom Sandhy Putra Malang menetapkan kriteria kelulusan yang telah diperiksa oleh pengawas sekolah dan diketahui oleh ibu <strong>Dr. Dra. Ema Sumiarti, M.Si.</strong>, Kepala Cabang Dinas Pendidikan Wilayah Malang (Kota Malang- Kota Batu). Kriteria kelulusan ini tertuang dalam <strong>Surat Keputusan Nomor 433/PDD/KL/SMK-TEL/V/2022</strong> tentang Penetapan Kriteria Kelulusan SMK Telkom Sandhy Putra Malang Tahun Pelajaran 2021/2022 yang ditetapkan di Malang pada tanggal 13 Mei 2022 oleh kepala sekolah, <strong>Rahmat Dwi Djatmiko, S.Kom.</strong></p>
+
+<p>Pada hari Selasa, 31 Mei 2022 pukul 13.00 WIB, SMK Telkom Sandhy Putra Malang telah menyelenggarakan rapat pleno kelulusan yang dihadiri oleh seluruh dewan pengajar. Sesuai kriteria kelulusan dari aspek akademis dan nonakademis, rapat pleno memutuskan bahwa <strong>Peserta Didik SMK Telkom Sandhy Putra Malang sebanyak 513 siswa dinyatakan lulus 100%</strong>. <i>Alhamdulillahi robbil alamiin</i>.</p>
+
+<p>Selamat untuk siswa kelas XII SMK Telkom Sandhy Putra Malang Angkatan 28. </p>
+
+<p><strong>Surat Keterangan Lulus (SKL)</strong> dapat <strong>diunduh</strong> pada akun <strong>SIAKAD</strong> masing-masing siswa. Jika <strong>dibutuhkan</strong> sebagai <strong>berkas kelengkapan studi lanjut atau kerja</strong>, dipersilakan untuk <strong>mencetak</strong> secara <strong>mandiri</strong> lalu <strong>disahkan</strong> oleh kepala sekolah.</p>
+
+<p>Jangan lelah untuk menimba ilmu di manapun berada dengan terus menjunjung tinggi slogan <i>Attitude is Everything</i>. Sekolah mengimbau agar siswa yang dinyatakan lulus tidak membuat aksi-aksi apapun apalagi dengan mengumpulkan massa/berkerumun.</p>
+
+<p><i>Congratulation and Happy Graduation!</i> </p>
+
+                            <p style="text-align: center;font-size: 15px;color:black">Berikut ini adalah Surat Keterangan Lulus (SKL). Silahkan download SKL  dengan klik tombol dibawah ini: <br><br><button onclick="location.href='https://siswa.smktelkom-mlg.sch.id/welcome/skl'" class="btn btn-success">Download</button></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">TUTUP</button>
+                    </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="download_pakta" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="largeModalLabel">Pakta Integritas</h4>
+            </div>
+                
+                    <div class="modal-body">
+                        <div class="row">
+                        	<h4 align="center">Langkah-langkah mengupload Pakta Integritas</h4>
+                            
+                                <div style="font-size: 17px">
+                                <ol>
+                                    <li>Silahkan download Pakta Integritas: 
+                                <br><button onclick="location.href='https://siswa.smktelkom-mlg.sch.id/welcome/paktaintegritas'" class="btn btn-success">DOWNLOAD</button>
+                                    </li>
+                                    <li>Cetak Pakta Integritas,</li>
+                                    <li>Beri tanda tangan Orang tua/Wali,</li>
+                                    <li>Scan Pakta Integritas,</li>
+                                    <li>Upload file pakta integritas berupa file PDF/JPG tersebut di sini:<br>
+                                    <label for="pakta" class="btn btn-primary">
+                                        UPLOAD
+                                    </label>
+                                    <input type="file" style="display: none" name="pakta" id="pakta" accept="application/pdf, image/png, image/jpeg" onchange="save_file(this)">
+                                    </li>
+                                </ol>
+                                
+                                </div>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">TUTUP</button>
+                    </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="akunmylmsypt" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="largeModalLabel">Survey Kepuasan Siswa</h4>
+            </div>
+            <div class="modal-body">
+                <p>Berdasarkan NDE yayasan terkait <strong>Pengukuran Customer Satisfaction Index TW-1 2022</strong>, mohon semua siswa untuk segera mengisi Survey Kepuasan Siswa Telkom Schools 2022 via MYLMS YPT paling lambat <strong>Kamis, 17 Maret 2022.</strong> </p>
+				 <p> Berikut SOP pengisian survey untuk SISWA</p>
+				<ol>
+					<li>Buka MyLMS di link —> <a href="https://bit.ly/CSILMS2022-Siswa" target="_blank">https://bit.ly/CSILMS2022-Siswa</a></li>
+					<li>Login menggunakan akun :<br>
+					username : 542211039<br>
+					password : arialdo_rivandi@30RPL<br>
+					</li>
+					<li>Klik <strong>Enroll Me</strong></li>
+					<li>Setelah masuk ke course, klik bagian <strong>Survey Kepuasan Siswa Telkom Schools 2022</strong></li>
+					<li>Klik <strong>Answer the question</strong></li>
+					<li>Silahkan mengisi survey.</li>
+					<li>Jika sudah selesai mengisi klik <strong>Submit questionnaire</strong></li>
+			</ol>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">TUTUP</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+	
+   
+
+
+
+
+
+    $(document).ready(function(){
+
+         
+
+    	                    show_no_wa();
+                                    
+                 
+		
+		/*$("#akunmylmsypt").modal('show');*/
+	// 	// 		$("#akunmylmsypt").modal('show');
+	// 		
+        
+                
+
+
+        $('input[name="luring"]').on('change', function(){
+            if($('input[name="luring"]:checked').val() == "1"){
+                $("#aku_tdk_setuju").css({'display':'none'});
+                $("#aku_setuju").css({'display':'block'});
+            } else {
+                $("#aku_setuju").css({'display':'none'});
+                $("#aku_tdk_setuju").css({'display':'block'});
+            }
+        });
+
+        
+
+        $.getJSON("https://siswa.smktelkom-mlg.sch.id/welcome/get_info",function(t){
+            if(t.status==true){
+                $("#t_info").css('display','block');
+                $("#info_umum").html(t.ket);
+            } else if(t.status==false) {
+                $("#t_info").css('display','none');
+                $("#info_umum").html(t.ket);
+            }
+        });
+
+        $.getJSON('https://siswa.smktelkom-mlg.sch.id/welcome/get_status_hadir', function(response) {
+            if(response.status_presensi[0] == "Belum Absen"){
+                $("#status_hadir1").text('Belum Absen');
+                                    $(".bg_hadir1").on('click',function(){
+                        location.href="https://siswa.smktelkom-mlg.sch.id/presnow";
+                    });
+                                    
+                $(".bg_hadir1").addClass(response.status_presensi[1]);
+                /*$("#text_status_hadir").text('Belum Absen (Presensi 6:00 - 09:00)');
+                $("#status_hadir1").text('Klik Disini!');
+                $(".bg_hadir1").on('click',function(){
+                    location.href="https://siswa.smktelkom-mlg.sch.id/presnow";
+                });
+
+                var c=response.mulai_presensi;
+                var t;
+                if(c>0){
+                    function timedCount()
+                    {
+                        var hours = parseInt( c / 3600 ) % 24;
+                        var minutes = parseInt( c / 60 ) % 60;
+                        var seconds = c % 60;
+                        var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
+                        $('#status_hadir1').html(result);
+                        $(".bg_hadir1").off('click');
+                        if(c == 0 )
+                        {
+                            setTimeout(function(){
+                                $("#status_hadir1").html('Klik Disini!');
+                                $(".bg_hadir1").on('click',function(){
+                                    location.href="https://siswa.smktelkom-mlg.sch.id/presnow";
+                                });
+                            },1000);
+                            
+                            clearTimeout(timedCount());
+                        }
+                        c = c - 1;
+                        t = setTimeout(function()
+                        {
+                        timedCount()
+                        },
+                        1000);
+                    }
+                    timedCount();
+                } else {
+                    if(response.akhir_presensi>0){
+
+                        $("#status_hadir1").html('Klik Disini!');
+                        $(".bg_hadir1").on('click',function(){
+                            location.href="https://siswa.smktelkom-mlg.sch.id/presnow";
+                        });
+                        var c1=response.akhir_presensi;
+                        var t1;
+                        if(c1>0){
+                            function timedCount1(){
+                                var hours1 = parseInt( c1 / 3600 ) % 24;
+                                var minutes1 = parseInt( c1 / 60 ) % 60;
+                                var seconds1 = c1 % 60;
+                                var result1 = (hours1 < 10 ? "0" + hours1 : hours1) + ":" + (minutes1 < 10 ? "0" + minutes1 : minutes1) + ":" + (seconds1  < 10 ? "0" + seconds1 : seconds1);
+                                //$('#status_hadir1').html(result);
+                                $("#waktu_ada").html(result1);
+                                if(c1 == 0 )
+                                {
+                                    setTimeout(function(){
+                                        $("#status_hadir1").html('Waktu Habis');
+                                        $(".bg_hadir1").off('click');
+                                    },1000);
+                                    
+                                    clearTimeout(timedCount1());
+                                }
+                                c1 = c1 - 1;
+                                t1 = setTimeout(function()
+                                {
+                                timedCount1()
+                                },
+                                1000);
+                            }
+                            timedCount1();
+
+
+                        } else {
+                            $("#status_hadir1").html('Waktu Habis');
+                            $(".bg_hadir1").off('click');
+                        }
+                    } else {
+                            $("#status_hadir1").html('Waktu Habis');
+                            $(".bg_hadir1").off('click');
+                    }
+                }*/
+            } else {
+                $("#status_hadir").text(response.status_presensi[0]);
+                $(".bg_hadir").addClass(response.status_presensi[1]);
+                $(".bg_hadir1").addClass(response.status_presensi[1]);
+                $(".bg_hadir1").off('click');
+                $("#status_hadir1").text(response.status_presensi[0]);
+            }
+        }); 
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev', 
+                center: 'title',
+                right: 'next'
+            },
+            eventLimit: true,
+            events: "https://siswa.smktelkom-mlg.sch.id/welcome/tm_kalender"
+            
+        });
+
+        $.ajax({
+            url:"https://siswa.smktelkom-mlg.sch.id/welcome/kehadiran",
+            dataType:"json", 
+            cache:false,
+            success:function(data){
+                $("#persen_hadir").html(data.persen_hadir+" %");
+                $("#sakit").html(data.sakit+" <small>Hari</small>");
+                $("#ijin").html(data.ijin+" <small>Hari</small>");
+                $("#dispen").html(data.dispen+" <small>Hari</small>");
+                $("#alpha").html(data.alpha+" <small>Hari</small>");
+            }
+        });
+
+        $.ajax({
+            url:"https://siswa.smktelkom-mlg.sch.id/Thefirst_siswa/tm_thefirst",
+            type:"post",
+            dataType:"json",
+            success: function(data){
+                var isi='';
+                isi += '<ul>';
+                var i=0;
+                $.each(data,function(key,obj){
+                    if(obj['foto_smk']==""){
+                        var foto_pr="user.png";
+                    } else {
+                        var foto_pr=obj['foto_smk'];
+                    }
+                    i++;
+                    isi += '<li>'+ 
+                                '<img src="https://siswa.smktelkom-mlg.sch.id/assets/images/foto_siswa/'+foto_pr+'" alt="...">'+
+                                '<div class="caption">'+
+                                    '<h6>'+obj['nama'].substring(0,20)+'<br><small>'+obj['nama_kelas']+' '+obj['kelompok']+' - ('+obj['jam']+')</small><h6>'+
+                                '</div>'+
+                            '</li>';
+                });
+                isi += '</ul>';
+                if(isi!=""){
+                    $("#tm").html(isi);
+                }
+            }
+        });
+
+        $.ajax({
+            url:"https://siswa.smktelkom-mlg.sch.id/welcome/update_absen",
+            dataType:"json", 
+            cache:false,
+            beforeSend:function(){
+                $("#update").html("Loading ....");
+            },
+            success:function(data){
+                $("#update").html(data['tgl']+" "+data['jam']);
+            }
+        });
+        
+    });
+
+
+
+
+// function loadcek() {
+//     $("#paktanya").html('');
+//     $.getJSON("https://siswa.smktelkom-mlg.sch.id/welcome/cek_pakta",function(dt){
+//         if(dt.status==1){
+            
+//             $("#paktanya").append(
+//                 '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">'+
+//             '<p class="alert alert-warning">'+
+//                 '<b>Anda sudah meng-upload Pakta Integritas</b>, klik <a href="https://siswa.smktelkom-mlg.sch.id/assets/pakta_integritas/'+dt.file+'" style="color:white;background:red">disini</a> untuk melihat, jika ingin merubah klik <a href="#download_pakta" data-toggle="modal" style="color:white;background:red">disini</a>'+ 
+//             '</p>'+
+//         '</div>'
+//                 );
+//         } else{
+//             //             function open_modal_pakta() {
+//                 $("#download_pakta").modal('show');
+//             }
+//             open_modal_pakta();
+//                 //         }
+//     });
+// }
+// loadcek();
+
+
+function save_file(input){
+	if (input.files && input.files.length>0) {
+		var imageFile=input.files[0];
+		if(imageFile.size>10000000){
+          alert("your file is too large");
+          $("#pakta").val('');
+        } 
+        else if(imageFile.type == "application/pdf"||imageFile.type == "image/jpg"||imageFile.type == "image/jpeg"||imageFile.type == "image/png") {
+        	var fd = new FormData();
+        	fd.append("fileToUpload", imageFile);
+        	$.ajax({
+        		url:"https://siswa.smktelkom-mlg.sch.id/welcome/store_pakta",
+        		type:"post",
+        		dataType:"json",
+        		data:fd,
+        		contentType: false,
+		        processData: false,
+	            beforeSend:function(){
+	                show_alert('beforeSend');
+	            },
+	            success:function(hasil){
+	            	if(hasil.status==true){
+                        show_alert('success',hasil.ket);
+                        $("#download_pakta").modal('hide');
+                        loadcek();
+                    } else{
+                        show_alert('danger',hasil.ket);
+                        $("#download_pakta").modal('hide');
+                        loadcek();
+                    }
+	            	
+	            	
+	            }
+        	});
+        	$("#pakta").val('');
+		} else {
+			alert("File harus PDF");
+			$("#pakta").val('');
+		}
+	}
+}
+
+
+
+
+</script>
+			
+			
+
+        
+    </section>
+
+<div class="modal fade" id="ubah_kata_sandi" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="largeModalLabel">UBAH KATA SANDI</h4>
+                </div>
+                <form id="form_validation_pass" action="#" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <p class="form-label">Kata Sandi Baru</p>
+                                <input type="password" name="kata_sandi1" class="form-control show-tick" required>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <p class="form-label">Ketik Ulang Kata Sandi Baru</p>
+                                <input type="password" name="kata_sandi2" class="form-control show-tick" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-link waves-effect" value="SIMPAN">
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">TUTUP</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modal_pesan" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="largeModalLabel">Pesan</h4>
+                </div>
+                <form id="form_validation_pass" action="#" method="POST">
+                    <div class="modal-body">
+                        <h4>Anda mendapatkan Pesan di Pengaduan sarana</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-link waves-effect" value="BUKA HALAMAN" onclick="location.href='https://siswa.smktelkom-mlg.sch.id/pengaduan_sarana'">
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">TUTUP</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div style="position: fixed;bottom: 0px;left:0px;z-index: 9999">
+	    <div class="alert alert-dismissible" role="alert" id="alert_pesan" style="display: none;z-index: 9999">
+	      <span id="messages"></span>
+	      <img id="alert_proses" width="30">
+	    </div>
+	</div>
+
+    
+    <script src='https://siswa.smktelkom-mlg.sch.id/assets/plugins/calendar/moment.min.js'></script>
+    <script src='https://siswa.smktelkom-mlg.sch.id/assets/plugins/calendar/jquery.min.js'></script>
+    <script src='https://siswa.smktelkom-mlg.sch.id/assets/plugins/calendar/fullcalendar.min.js'></script>
+
+        
+
+<script type="text/javascript" src="https://siswa.smktelkom-mlg.sch.id/assets/jquery.mb.audio.js"></script>
+<script type="text/javascript" src="https://siswa.smktelkom-mlg.sch.id/assets/NoSleep.min.js"></script> 
+<script type="text/javascript" src="https://siswa.smktelkom-mlg.sch.id/assets/load_sw.js"></script>
+    <!-- Jquery Core Js -->
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/node-waves/waves.js"></script>
+
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/momentjs/moment.js"></script>
+   
+    <script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+    <script type="" src="https://siswa.smktelkom-mlg.sch.id/assets/canvastoblob.js"></script>
+    <script type="text/javascript" src="https://siswa.smktelkom-mlg.sch.id/assets/promise.js"></script> 
+   <script src="https://siswa.smktelkom-mlg.sch.id/assets/js/admin.js"></script>
+<script src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+<!-- <script type="text/javascript" src="https://siswa.smktelkom-mlg.sch.id/assets/plugins/select2/select2.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js" integrity="sha512-LRkOtikKE2LFHPWiWh0/bfFynswxRwCZ5O7PkXTVFPcprw376xfOemiEHEOmCCmiwS6eLFUh2fb+Gqxc0waTSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+    <script type="text/javascript">
+
+
+
+        
+       
+
+$("#coba_lagi").click(function(){
+    $("#isi_otp").hide( );
+    $("#proses_wa").show( );
+});
+
+$("#proses_wa").submit(function(e){
+     e.preventDefault() ;
+    $.ajax({
+        url:"https://siswa.smktelkom-mlg.sch.id/welcome/verify_wa",
+        data:$("#proses_wa").serialize(),
+        dataType:"json",
+        type:"post",
+        beforeSend:function(){
+            show_alert('beforeSend');
+        },
+        success:function(dt_pr){
+            if(dt_pr.status==true){
+                show_alert('success',dt_pr.ket);
+                $("#expired").html(dt_pr.expired); 
+                $("#isi_otp").show( );
+                $("#proses_wa").hide( );
+                $("#kode_otp").focus();
+            } else {
+                show_alert('danger',dt_pr.ket);
+            }
+            
+        },
+        error:function(){
+             show_alert('danger',' koneksi putus');
+        }
+    });
+});
+$("#kode_otp").keyup(function(){
+    if(this.value.length>5) {
+        var dtnya={'otp':$("#kode_otp").val(),'token':$("#token1").val()};
+       $.ajax({
+            url:"https://siswa.smktelkom-mlg.sch.id/welcome/verify_otp",
+            data:dtnya,
+            dataType:"json",
+            type:"post",
+            beforeSend:function(){
+                show_alert('beforeSend');
+            },
+            success:function(dt_pr1){
+                if(dt_pr1.status==true){
+                    show_alert('success',dt_pr1.ket);
+                    $("#no_wa").modal('hide');
+                   
+                } else {
+                    show_alert('danger',dt_pr1.ket);
+                }
+                
+            },
+            error:function(){
+                 show_alert('danger',' koneksi putus');
+            }
+        });
+    }
+});
+
+       /*$('<audio id="notif"><source src="https://siswa.smktelkom-mlg.sch.id/assets/facebook_sound.mp3" type="audio/mpeg"></audio>').appendTo('body');*/
+
+var noSleep = new NoSleep();
+function enableNoSleep() {
+  noSleep.enable();
+  document.removeEventListener('touchstart', enableNoSleep, false);
+}
+document.addEventListener('touchstart', enableNoSleep, false);
+  var player = new Audio("https://siswa.smktelkom-mlg.sch.id/assets/facebook_sound.mp3");          
+
+
+$('.kamera').on('click', function() { 
+    $('#upload_profil').click();return false;
+  });
+        // $(function () {
+        //     $('.datepicker').bootstrapMaterialDatePicker({
+        //         format: 'dddd DD MMMM YYYY',
+        //         clearButton: true,
+        //         weekStart: 1,
+        //         time: false
+        //     });
+        // });
+$("#upload_profil").change(function(){
+        eksekusi(this);
+    });
+function eksekusi(input) {
+         
+
+
+        if (input.files && input.files[0]) {
+            var fileReader = new FileReader();
+            var imageFile = input.files[0];
+            if(imageFile.size>10000000){
+              alert("your file is too large");
+              $("#upload_profil").val('');
+            } 
+            else if(imageFile.type == "image/png" || imageFile.type == "image/jpeg" || imageFile.type == "image/jpg") {
+                fileReader.readAsDataURL(imageFile);
+                fileReader.onload = function (e) {
+                    var formData= new FormData($("#form_upload_profil")[0]);
+                    //var formData="aaaa";
+                   $.ajax({
+                        url:"https://siswa.smktelkom-mlg.sch.id/presnow/sim",
+                        type:"POST",
+                        dataType:"json",
+                        data:formData,
+                        contentType: false,
+			    		processData: false,
+                        beforeSend:function(){
+                            $(".loading3").css('display','block');
+                            $(".loading3").css('transition','all .4s ease-in');
+                        },
+                        success:function(hasil){
+                            $(".loading3").css('display','none');
+                            $(".loading3").css('transition','all .4s ease-in');
+                            if(hasil['status']==1){
+                                $(".pesannya").css('display','block');
+                                $(".pesannya").html(hasil['pesan']);
+                                 $(".pesannya").css('transition','all .4s ease-in');
+                                setTimeout(function() {
+                                	$(".pesannya").html(hasil['pesan']);
+                                    $(".pesannya").css('display','none');
+                                    $(".pesannya").css('transition','all .4s ease-in');
+                                    location.reload();
+                                }, 2000);
+                            }
+                        }
+                   });
+                }
+            }
+            else {
+                alert("your file is not image");
+                $("#upload_profil").val('');
+
+            }
+        }
+    }
+
+        $('#1').bootstrapMaterialDatePicker({ weekStart : 0,
+        time: false,clearButton: true });
+$('#0').bootstrapMaterialDatePicker({ weekStart : 0,
+time: false,clearButton: true }).on('change', function(e, date)
+{
+$('#1').bootstrapMaterialDatePicker('setMinDate', date);
+});
+
+
+
+
+$("#form_validation_pass").submit(function() {
+        $.ajax({
+            type: "POST",
+            data: $('#form_validation_pass').serialize(),
+            url: "https://siswa.smktelkom-mlg.sch.id/welcome/set_ulang_kata_sandi",
+            success: function(r) {
+                if (r.log.status == 0) {
+                    showNotification('bg-red', r.log.keterangan);
+                    location.reload();
+                
+                } else {
+                    showNotification('bg-green', r.log.keterangan);
+                    location.reload();
+
+                }
+            }
+        });
+    });
+/*var notif=function()
+    {
+        $.ajax({
+            type:"get",
+            url:"https://siswa.smktelkom-mlg.sch.id/notif",
+            dataType:"json",
+            success:function(dt){
+
+                // localStorage.clear();
+                var dtanya=localStorage.getItem('data');
+                //console.log(dtanya);
+                if(dtanya==null){
+                    var dtarr={'jumlah':0,'dt':[]};
+                    localStorage.setItem("data",JSON.stringify(dtarr));
+
+                }  else {
+
+                    var dtanya=localStorage.getItem('data');
+                     var dt_nya=JSON.parse(dtanya);
+                    if(dt_nya.jumlah==dt.jumlah ){
+                       
+                    } else {
+                        localStorage.setItem("data",JSON.stringify(dt));
+                        player.play();
+                        
+                        if(dt_nya.dt.isi_singkat!=""){
+                            main(dt_nya.dt.isi_singkat.substring(0, 25));
+                            $("#modal_pesan").modal("show");
+                        }
+                         
+                        
+                        
+                    }
+                }
+               
+                
+            }
+        });   
+    }*/
+
+setInterval(function(){
+    notif();
+},2000);
+notif();
+/*player.play();*/
+
+function show_alert(warna,keterangan='') {
+    if(warna=="beforeSend"){
+        $("#alert_pesan").removeClass('alert-danger').removeClass('alert-success').addClass('alert-warning');
+        $("#alert_proses").attr('src','https://siswa.smktelkom-mlg.sch.id/assets/loading3.gif');
+        $("#messages").html('');
+        $("#alert_pesan").show('fade');
+    } else if(warna=="warning"){
+        $("#alert_proses").attr('src','');
+        $("#alert_pesan").removeClass('alert-danger').removeClass('alert-success').addClass('alert-warning');
+        $("#messages").html(keterangan);
+        $("#alert_pesan").show('fade');
+        setTimeout(function(){
+            $("#alert_pesan").hide('fade');
+            $("#modal_edit_tgl_lahir").modal('hide');
+            return true;
+        },4000);
+    } else if(warna=="success"){
+        $("#alert_proses").attr('src','');
+        $("#alert_pesan").removeClass('alert-danger').removeClass('alert-warning').addClass('alert-success');
+        $("#messages").html(keterangan);
+        $("#alert_pesan").show('fade');
+        setTimeout(function(){
+            $("#alert_pesan").hide('fade');
+            $("#modal_edit_tgl_lahir").modal('hide');
+            return true;
+        },4000);
+    } else if(warna=="danger"){
+        $("#alert_proses").attr('src','');
+        $("#alert_pesan").removeClass('alert-warning').removeClass('alert-success').addClass('alert-danger');
+        $("#messages").html(keterangan);
+        $("#alert_pesan").show('fade');
+        setTimeout(function(){
+            $("#alert_pesan").hide('fade');
+            $("#modal_edit_tgl_lahir").modal('hide');
+            return true;
+        },4000);
+    }
+}
+
+function show_no_wa() {
+    $("#no_wa").modal('show');
+}
+function load_skl() {
+
+    $("#skl").modal('show');
+}
+
+    </script>
+
+</body>
+
+</html>

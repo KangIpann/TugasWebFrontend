@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Praktikum</title>
+  </head>
+
+  <script>
+    function test() {
+      var a = document.nilai.T1.value;
+      if (a >= 93 && a <= 100) {
+        document.nilai.T2.value = "A";
+      } else if (a >= 83 && a <= 92) {
+        document.nilai.T2.value = "B";
+      } else if (a >= 75 && a <= 82) {
+        document.nilai.T2.value = "C";
+      } else if (a >= 50 && a <= 74) {
+        document.nilai.T2.value = "D";
+      } else if (a >= 0 && a <= 49) {
+        document.nilai.T2.value = "E";
+      }
+    }
+  </script>
+  <body>
+    <form method="POST" name="nilai">
+      <p>Nilai Kamu <input type="text" name="T1" size="20" /><br /></p>
+      <p><input type="button" value="Cek" name="B1" onclick="test()" /></p>
+      <p>Kriteria Nilai Kamu <input type="text" name="T2" size="20" /></p>
+    </form>
+  </body>
+</html>

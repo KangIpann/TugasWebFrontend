@@ -1,0 +1,97 @@
+<!-- File ini dikerjakan oleh = Kang.Ipann-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Praktikum 2</title>
+  </head>
+  <style>
+
+    /* Kotak an */
+
+    .buttoncek {
+      display: block;
+      border: solid white;
+      border-width: 0 10px;
+      border-radius: 0;
+      background: green;
+      color: white;
+      font-size: 18px;
+      margin: 10px;
+      padding: 50px;
+      
+    }
+  </style>
+  <script>
+    function kali() {
+    var a = document.nilai.bil1.value
+      var b = document.nilai.bil2.value
+      var btn = document.nilai.Bx.value
+      switch (btn) {
+        case "*":
+            document.nilai.hasil.value = a * b
+            break;
+      
+        default:
+            break;
+      }
+      }
+    // }
+      function bagi(){
+        var a = document.nilai.bil1.value
+      var b = document.nilai.bil2.value
+      var btn = document.nilai.Bx2.value
+      switch (btn) {
+        case "/":
+            document.nilai.hasil.value = a / b
+            break;
+      
+        default:
+            break;
+      }
+      }
+      function tambah(){
+        let total = 0
+        let a = nilai.bil1.value
+      let b = nilai.bil2.value
+      var btn = document.nilai.Bx3.value
+      switch (btn) {
+        case "+":
+         document.nilai.hasil.value = parseInt(a) + parseInt(b)
+            break;
+        default:
+            break;
+      }
+      }
+      function kurang(){
+        var a = document.nilai.bil1.value
+      var b = document.nilai.bil2.value
+      var btn = document.nilai.Bx4.value
+      switch (btn) {
+        case "-":
+            document.nilai.hasil.value = a - b
+            break;
+      
+        default:
+            break;
+      }
+      }
+  </script>
+  <body>
+    <form method="POST" name="nilai">
+      <p>Bil 1 <input type="number" name="bil1" size="20" /><br /></p>
+      <p>Bil 2 <input type="number" name="bil2" size="20" /><br /></p>
+      <p>Bil Hasil <input type="text" name="hasil" size="20" /><br /></p>
+      <table>
+        <tr>
+            <td><input type="button" class="buttoncek" value="*" id="btn" name="Bx"onclick="kali()"></input></td>
+            <td><input type="button" class="buttoncek" value="/" id="btn" name="Bx2" onclick="bagi()"></input></td>
+            <td><input type="button" class="buttoncek" value="+" id="btn" name="Bx3"onclick="tambah()"></input></td>
+            <td><input  type="button" class="buttoncek" value="-" id="btn"name="Bx4" onclick="kurang()"></input></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
